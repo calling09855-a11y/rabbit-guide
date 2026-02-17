@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
+  <rect width="100" height="100" rx="18" fill="#fdf3e8"/>
+  
+  <!-- クッキー外形 -->
+  <ellipse cx="50" cy="58" rx="30" ry="26" fill="#d4a060" stroke="#b07840" stroke-width="2"/>
+  <!-- クッキーテクスチャ -->
+  <circle cx="38" cy="52" r="2.5" fill="#b07840" opacity="0.5"/>
+  <circle cx="60" cy="48" r="2" fill="#b07840" opacity="0.5"/>
+  <circle cx="52" cy="66" r="2" fill="#b07840" opacity="0.5"/>
+  <circle cx="42" cy="66" r="2.5" fill="#b07840" opacity="0.4"/>
+  <circle cx="62" cy="62" r="2" fill="#b07840" opacity="0.4"/>
+  <!-- ハートアイシング -->
+  <path d="M50,52 C50,52 42,44 38,46 C34,48 34,54 38,58 L50,70 L62,58 C66,54 66,48 62,46 C58,44 50,52 50,52 Z" fill="#f06080" stroke="#d04060" stroke-width="1.5"/>
+  <!-- ハートハイライト -->
+  <ellipse cx="44" cy="50" rx="3" ry="2" fill="white" opacity="0.35"/>
+  <!-- クッキーハイライト -->
+  <ellipse cx="40" cy="46" rx="7" ry="5" fill="white" opacity="0.18"/>
+
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
+  <rect width="100" height="100" rx="18" fill="#fdf8ec"/>
+  
+  <!-- 茎 -->
+  <line x1="32" y1="75" x2="28" y2="30" stroke="#c8a84b" stroke-width="4" stroke-linecap="round"/>
+  <line x1="50" y1="78" x2="50" y2="25" stroke="#d4b55a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="68" y1="75" x2="72" y2="30" stroke="#c8a84b" stroke-width="4" stroke-linecap="round"/>
+  <!-- 穂先 -->
+  <ellipse cx="28" cy="27" rx="5" ry="10" fill="#8ab44a" transform="rotate(-8 28 27)"/>
+  <ellipse cx="50" cy="22" rx="5" ry="11" fill="#96c050"/>
+  <ellipse cx="72" cy="27" rx="5" ry="10" fill="#8ab44a" transform="rotate(8 72 27)"/>
+  <!-- サブ草 -->
+  <line x1="41" y1="76" x2="38" y2="42" stroke="#bda04a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="59" y1="76" x2="62" y2="42" stroke="#bda04a" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="38" cy="39" rx="4" ry="8" fill="#7ea040" transform="rotate(-5 38 39)"/>
+  <ellipse cx="62" cy="39" rx="4" ry="8" fill="#7ea040" transform="rotate(5 62 39)"/>
+  <!-- 地面 -->
+  <ellipse cx="50" cy="78" rx="22" ry="5" fill="#c8a84b" opacity="0.25"/>
+
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
+  <rect width="100" height="100" rx="18" fill="#fef0ee"/>
+  
+  <!-- 葉 -->
+  <path d="M50,22 Q62,14 68,22 Q62,30 50,28 Z" fill="#5aba3a" stroke="#3a8a20" stroke-width="1.5"/>
+  <line x1="50" y1="22" x2="62" y2="20" stroke="#3a8a20" stroke-width="1" opacity="0.7"/>
+  <!-- 茎 -->
+  <line x1="50" y1="30" x2="50" y2="22" stroke="#7a5030" stroke-width="3" stroke-linecap="round"/>
+  <!-- りんご本体 -->
+  <path d="M50,30 Q74,30 76,54 Q76,76 50,78 Q24,76 24,54 Q26,30 50,30 Z" fill="#e84040" stroke="#c02828" stroke-width="2"/>
+  <!-- 上部くぼみ -->
+  <path d="M40,30 Q50,24 60,30" fill="#e84040" stroke="#c02828" stroke-width="1.5"/>
+  <!-- ハイライト -->
+  <ellipse cx="38" cy="44" rx="8" ry="10" fill="white" opacity="0.22" transform="rotate(-15 38 44)"/>
+  <!-- 底のくぼみ -->
+  <path d="M44,77 Q50,80 56,77" stroke="#c02828" stroke-width="1.5" fill="none"/>
+
+</svg>

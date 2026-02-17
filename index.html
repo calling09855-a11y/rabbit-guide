@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>うさぎ図鑑とごはんガイド</title>
+  <meta name="description" content="うさぎの代表的な種類と、毎日の餌（OK/注意/NG）をわかりやすく紹介するホームページ。" />
+  <style>
+:root{
+  --bg:#f3efe6;
+  --panel:#ffffff;
+  --panel2:#fbf7ee;
+  --text:#2a1f16;
+  --muted:#6b5a49;
+  --line:rgba(43,32,22,.12);
+  --accent:#2f8f5b;
+  --accent2:#a06b3d;
+  --danger:#ff4d6d;
+  --warn:#ffb703;
+  --ok:#37d67a;
+  --shadow:0 4px 16px rgba(0,0,0,.08);
+  --radius:16px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+}
+
+a{color:inherit; text-decoration:none}
+
+.container{
+  width:min(1100px, calc(100% - 40px));
+  margin:0 auto;
+}
+
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter:saturate(140%) blur(10px);
+  background:rgba(243,239,230,.78);
+  border-bottom:1px solid var(--line);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
+  gap:12px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:220px;
+}
+
+.brand-mark{
+  width:40px;
+  height:40px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:linear-gradient(135deg, rgba(47,143,91,.95), rgba(160,107,61,.90));
+  box-shadow:0 10px 30px rgba(47,143,91,.22);
+  font-weight:800;
+}
+
+.brand-title{display:block; font-weight:800; letter-spacing:.02em}
+.brand-subtitle{display:block; color:var(--muted); font-size:12px; margin-top:1px}
+
+.site-nav{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.site-nav a{
+  color:var(--muted);
+  font-weight:650;
+  padding:8px 10px;
+  border-radius:10px;
+  transition:background .2s ease, color .2s ease;
+}
+
+.site-nav a:hover{
+  background:rgba(43,32,22,.04);
+  color:var(--text);
+}
+
+.nav-toggle{
+  display:none;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.03);
+  color:var(--text);
+  border-radius:12px;
+  padding:10px 12px;
+}
+
+.nav-toggle-lines{
+  display:block;
+  width:18px;
+  height:2px;
+  background:var(--text);
+  position:relative;
+}
+
+.nav-toggle-lines::before,
+.nav-toggle-lines::after{
+  content:"";
+  position:absolute;
+  left:0;
+  width:18px;
+  height:2px;
+  background:var(--text);
+}
+
+.nav-toggle-lines::before{top:-6px}
+.nav-toggle-lines::after{top:6px}
+
+.hero{
+  padding:54px 0 32px;
+  background:
+    radial-gradient(900px 600px at 10% 0%, rgba(47,143,91,.20), transparent 60%),
+    radial-gradient(700px 500px at 90% 20%, rgba(160,107,61,.22), transparent 55%);
+}
+
+.hero-inner{
+  display:grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap:26px;
+  align-items:start;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.65);
+  padding:6px 10px;
+  border-radius:999px;
+  color:var(--muted);
+  font-weight:650;
+  font-size:13px;
+}
+
+h1{
+  font-size: clamp(30px, 4vw, 46px);
+  line-height:1.15;
+  margin:14px 0 12px;
+}
+
+.accent{
+  background:linear-gradient(135deg, rgba(47,143,91,1), rgba(160,107,61,1));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.lead{color:rgba(42,31,22,.72); font-size:16px; margin:0 0 18px}
+
+.hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:10px}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:44px;
+  padding:0 16px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.72);
+  color:var(--text);
+  font-weight:750;
+  transition:transform .15s ease, background .2s ease, border-color .2s ease;
+}
+
+.btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.06)}
+.btn.primary{
+  border-color:rgba(47,143,91,.55);
+  background:linear-gradient(135deg, rgba(47,143,91,.95), rgba(160,107,61,.65));
+}
+
+.note{color:var(--muted); font-size:13px; margin:10px 0 0}
+
+.hero-card{
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.72));
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px 18px 16px;
+}
+
+.card-title{margin:0 0 10px; font-size:16px}
+
+.checklist{list-style:none; margin:0; padding:0; display:grid; gap:10px}
+.checklist li{color:var(--text)}
+.check{display:inline-grid; place-items:center; width:22px; height:22px; border-radius:8px; background:rgba(55,214,122,.12); border:1px solid rgba(55,214,122,.28); margin-right:8px; color:rgba(55,214,122,.95); font-weight:900}
+
+.mini-link{display:inline-block; margin-top:12px; color:rgba(47,143,91,.98); font-weight:750}
+
+.section{padding:40px 0}
+.section-head{margin-bottom:16px}
+.section-head h2{font-size:26px; margin:0 0 8px}
+.muted{color:var(--muted); margin:0}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:14px;
+}
+
+.card{
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+  border-radius:var(--radius);
+  padding:16px;
+  box-shadow:0 2px 8px rgba(0,0,0,.07);
+  transition:box-shadow .2s ease, transform .2s ease;
+}
+
+.card:hover{
+  box-shadow:0 12px 40px rgba(0,0,0,.18);
+  transform:translateY(-2px);
+}
+
+.card-top{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:8px}
+.card-top h3{margin:0; font-size:16px}
+.tag{
+  font-size:12px;
+  padding:5px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.03);
+  color:var(--muted);
+  font-weight:700;
+}
+
+.card-body{margin:0 0 10px; color:rgba(42,31,22,.86)}
+.meta{margin:0; padding-left:18px; color:var(--muted); font-size:13px}
+
+.food-layout{display:grid; grid-template-columns: 1fr; gap:12px}
+
+.food-controls{display:flex; gap:10px; flex-wrap:wrap}
+.pill{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.03);
+  color:var(--muted);
+  border-radius:999px;
+  height:40px;
+  padding:0 14px;
+  font-weight:800;
+  cursor:pointer;
+}
+.pill.active{color:var(--text); border-color:rgba(47,143,91,.55); background:rgba(47,143,91,.14)}
+.pill.danger{border-color:rgba(255,77,109,.45)}
+
+.food-table{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:rgba(255,255,255,.75);
+}
+
+.food-row{
+  display:grid;
+  grid-template-columns: 88px 1fr auto;
+  gap:14px;
+  padding:14px 14px;
+  border-top:1px solid var(--line);
+  align-items:center;
+}
+
+.food-row:first-child{border-top:none}
+
+.food-badge{
+  height:32px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  font-weight:900;
+  letter-spacing:.03em;
+  border:1px solid var(--line);
+}
+
+.food-badge.ok{background:rgba(55,214,122,.12); border-color:rgba(55,214,122,.25); color:rgba(55,214,122,.95)}
+.food-badge.warn{background:rgba(255,183,3,.12); border-color:rgba(255,183,3,.25); color:rgba(255,183,3,.95)}
+.food-badge.ng{background:rgba(255,77,109,.12); border-color:rgba(255,77,109,.28); color:rgba(255,77,109,.95)}
+
+.food-main h3{margin:0 0 4px; font-size:16px}
+.food-main p{margin:0; color:rgba(42,31,22,.80)}
+.food-side{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+
+.chip{
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.70);
+  color:var(--muted);
+  font-weight:800;
+}
+
+.callout{
+  margin-top:16px;
+  border:1px solid rgba(51,214,166,.24);
+  background:linear-gradient(180deg, rgba(47,143,91,.12), rgba(160,107,61,.10));
+  border-radius:var(--radius);
+  padding:16px;
+}
+
+.callout h3{margin:0 0 12px; font-size:16px}
+.callout-grid{display:grid; grid-template-columns: repeat(4, 1fr); gap:10px}
+.callout-item{border-radius:14px; padding:12px 4px}
+.callout-title{font-weight:900; margin-bottom:6px}
+.callout-text{color:var(--muted); font-size:13px}
+
+.two-col{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px}
+.panel{
+  border-radius:var(--radius);
+  padding:16px 0;
+}
+.panel h3{margin:0 0 10px; font-size:16px}
+.list{margin:0; padding-left:18px; color:rgba(42,31,22,.88)}
+.panel-note{margin:12px 0 0; color:var(--muted); font-size:13px}
+
+.faq{display:grid; gap:10px}
+.faq-item{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.80);
+  border-radius:var(--radius);
+  padding:12px 14px;
+}
+
+.faq-item summary{cursor:pointer; font-weight:850; color:var(--text)}
+.faq-body{color:rgba(42,31,22,.82)}
+
+.site-footer{
+  padding:26px 0 40px;
+  border-top:1px solid var(--line);
+  background:rgba(243,239,230,.82);
+}
+
+.footer-inner{display:flex; align-items:flex-start; justify-content:space-between; gap:14px}
+.footer-title{font-weight:900}
+.footer-muted{color:var(--muted); font-size:13px; margin-top:4px}
+.to-top{color:rgba(47,143,91,.98); font-weight:850}
+
+.breed-thumb{
+  height:132px;
+  border-radius:14px;
+  border:1px solid rgba(42,31,22,.16);
+  background:radial-gradient(140px 90px at 35% 30%, rgba(47,143,91,.16), transparent 55%),
+             radial-gradient(160px 110px at 75% 65%, rgba(160,107,61,.20), transparent 60%),
+             rgba(255,255,255,.70);
+  display:grid;
+  place-items:center;
+  margin-bottom:12px;
+  overflow:hidden;
+  box-shadow:0 10px 22px rgba(42,31,22,.10);
+}
+
+.breed-thumb svg{width:92%; height:92%}
+
+.breed-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:brightness(1.06) contrast(1.08) saturate(1.04);
+  transform:scale(1.03);
+  transition:transform .18s ease, filter .18s ease;
+}
+
+.card:hover .breed-thumb img{
+  transform:scale(1.08);
+  filter:brightness(1.08) contrast(1.12) saturate(1.05);
+}
+
+.food-main{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+
+.food-icon{
+  width:44px;
+  height:44px;
+  flex:0 0 44px;
+  border-radius:14px;
+  border:1px solid rgba(42,31,22,.16);
+  background:rgba(255,255,255,.72);
+  display:grid;
+  place-items:center;
+  margin-top:2px;
+  box-shadow:0 2px 6px rgba(42,31,22,.06);
+}
+
+.food-icon svg{width:26px; height:26px}
+
+.food-icon img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:brightness(1.06) contrast(1.08) saturate(1.04);
+}
+
+@media (max-width: 920px){
+  .grid{grid-template-columns: repeat(2, 1fr)}
+  .hero-inner{grid-template-columns: 1fr;}
+  .callout-grid{grid-template-columns: repeat(2, 1fr)}
+}
+
+@media (max-width: 620px){
+  /* ナビ */
+  .site-nav{
+    display:none;
+    position:absolute;
+    right:20px;
+    top:64px;
+    flex-direction:column;
+    gap:6px;
+    padding:10px;
+    background:rgba(243,239,230,.98);
+    border:1px solid var(--line);
+    border-radius:14px;
+    width:min(260px, calc(100vw - 40px));
+    box-shadow:0 8px 24px rgba(0,0,0,.12);
+  }
+  .site-nav.open{display:flex}
+  .site-nav a{width:100%}
+  .nav-toggle{display:inline-flex; align-items:center; justify-content:center}
+
+  /* グリッド */
+  .grid{grid-template-columns: 1fr}
+  .two-col{grid-template-columns: 1fr}
+  .callout-grid{grid-template-columns: 1fr}
+
+  /* ヒーロー */
+  .hero{padding:32px 0 20px}
+  h1{font-size:clamp(26px, 7vw, 36px)}
+  .hero-actions{gap:8px}
+  .hero-card{display:none} /* モバイルは右カードを非表示でスッキリ */
+
+  /* 食材テーブル */
+  .food-row{grid-template-columns: 60px 1fr; gap:10px; padding:12px}
+  .food-side{display:none} /* チップはモバイルで非表示 */
+  .food-badge{height:28px; font-size:12px}
+
+  /* フッター */
+  .footer-inner{flex-direction:column; gap:8px}
+
+  /* セクション余白 */
+  .section{padding:28px 0}
+  .section-head h2{font-size:22px}
+}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="トップへ">
+        <span class="brand-mark" aria-hidden="true">R</span>
+        <span class="brand-text">
+          <span class="brand-title">うさぎ図鑑</span>
+          <span class="brand-subtitle">種類とごはんの基本</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">
+        <span class="nav-toggle-lines" aria-hidden="true"></span>
+        <span class="sr-only">メニュー</span>
+      </button>
+
+      <nav class="site-nav" id="siteNav">
+        <a href="#breeds">種類</a>
+        <a href="#food">餌</a>
+        <a href="#tips">飼育の要点</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="badge">初めての方向け</p>
+          <h1>うさぎの種類と、毎日のごはんを
+            <span class="accent">迷わず選べる</span>ように。
+          </h1>
+          <p class="lead">代表的な品種の特徴と、主食・おやつ・NG食材をまとめました。体調や年齢で最適解は変わるので、最後に「飼育の要点」も確認してください。</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#food">餌のガイドを見る</a>
+            <a class="btn" href="#breeds">種類をチェック</a>
+          </div>
+          <p class="note">このページは一般的な情報です。病気の疑いがある場合は獣医師に相談してください。</p>
+        </div>
+
+        <div class="hero-card" aria-label="今日のチェックリスト">
+          <h2 class="card-title">今日のチェック</h2>
+          <ul class="checklist">
+            <li><span class="check">✓</span>牧草は常に食べられる？</li>
+            <li><span class="check">✓</span>水は新鮮？ボトル詰まり無し？</li>
+            <li><span class="check">✓</span>うんちの量・形はいつも通り？</li>
+            <li><span class="check">✓</span>元気・食欲はある？</li>
+          </ul>
+          <a class="mini-link" href="#tips">困ったときの目安 →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="breeds">
+      <div class="container">
+        <div class="section-head">
+          <h2>うさぎの種類</h2>
+          <p class="muted">性格は個体差が大きいですが、体格・毛質・耳の形などでおおまかな傾向が分かります。</p>
+        </div>
+
+        <div class="grid" id="breedGrid">
+          <article class="card">
+            <div class="breed-thumb" aria-hidden="true">
+              <img src="assets/illust-netherland-dwarf.svg" alt="ネザーランドドワーフ" loading="lazy" />
+            </div>
+            <div class="card-top">
+              <h3>ネザーランドドワーフ</h3>
+              <span class="tag">小型</span>
+            </div>
+            <p class="card-body">小さな体と丸い顔が特徴。活発で好奇心旺盛な子が多め。</p>
+            <ul class="meta">
+              <li>体重目安: 0.8〜1.2kg</li>
+              <li>ポイント: 慣れるまで距離感が必要なことも</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="breed-thumb" aria-hidden="true">
+              <img src="assets/illust-holland-lop.svg" alt="ホーランドロップ" loading="lazy" />
+            </div>
+            <div class="card-top">
+              <h3>ホーランドロップ</h3>
+              <span class="tag">たれ耳</span>
+            </div>
+            <p class="card-body">垂れた耳が魅力。比較的おっとりと言われることが多い人気種。</p>
+            <ul class="meta">
+              <li>体重目安: 1.3〜2.0kg</li>
+              <li>ポイント: 耳の通気が悪くなりやすいのでケア</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="breed-thumb" aria-hidden="true">
+              <img src="assets/illust-lion-rabbit.svg" alt="ライオンヘッド" loading="lazy" />
+            </div>
+            <div class="card-top">
+              <h3>ライオンヘッド</h3>
+              <span class="tag">長毛</span>
+            </div>
+            <p class="card-body">首回りのたてがみのような毛が特徴。換毛期のケアが重要。</p>
+            <ul class="meta">
+              <li>体重目安: 1.1〜1.7kg</li>
+              <li>ポイント: ブラッシング頻度を増やす</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="breed-thumb" aria-hidden="true">
+              <img src="assets/illust-rex.svg" alt="レッキス" loading="lazy" />
+            </div>
+            <div class="card-top">
+              <h3>レッキス</h3>
+              <span class="tag">短毛</span>
+            </div>
+            <p class="card-body">ビロードのような手触りの短毛。体がしっかりしていて筋肉質。</p>
+            <ul class="meta">
+              <li>体重目安: 3.0〜4.5kg</li>
+              <li>ポイント: 足裏に負担が出ないよう床材配慮</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="breed-thumb" aria-hidden="true">
+              <img src="assets/illust-mini-rex.svg" alt="ミニレッキス" loading="lazy" />
+            </div>
+            <div class="card-top">
+              <h3>ミニレッキス</h3>
+              <span class="tag">短毛</span>
+            </div>
+            <p class="card-body">レッキスの質感を小型にしたイメージ。触り心地が魅力。</p>
+            <ul class="meta">
+              <li>体重目安: 1.4〜2.0kg</li>
+              <li>ポイント: 体重管理をしやすい</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="breed-thumb" aria-hidden="true">
+              <img src="assets/illust-flemish-giant.svg" alt="フレミッシュジャイアント" loading="lazy" />
+            </div>
+            <div class="card-top">
+              <h3>フレミッシュジャイアント</h3>
+              <span class="tag">大型</span>
+            </div>
+            <p class="card-body">迫力のある大型種。必要なスペース・食事量も増える。</p>
+            <ul class="meta">
+              <li>体重目安: 6.0kg〜</li>
+              <li>ポイント: ケージや運動スペースを大きめに</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="breed-thumb" aria-hidden="true">
+              <img src="assets/illust-american-fuzzy-lop.svg" alt="アメリカンファジーロップ" loading="lazy" />
+            </div>
+            <div class="card-top">
+              <h3>アメリカンファジーロップ</h3>
+              <span class="tag">たれ耳</span>
+            </div>
+            <p class="card-body">たれ耳＋ふわっとした被毛が特徴。ブラッシングを習慣化すると安心。</p>
+            <ul class="meta">
+              <li>体重目安: 1.4〜1.8kg</li>
+              <li>ポイント: 換毛期の毛球症対策（牧草・ブラシ）</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="breed-thumb" aria-hidden="true">
+              <img src="assets/illust-angora.svg" alt="アンゴラ" loading="lazy" />
+            </div>
+            <div class="card-top">
+              <h3>アンゴラ</h3>
+              <span class="tag">長毛</span>
+            </div>
+            <p class="card-body">非常に長い被毛が魅力。日々のブラッシングと毛の飲み込み対策が重要。</p>
+            <ul class="meta">
+              <li>体重目安: 2.5〜4.0kg</li>
+              <li>ポイント: 毛づくろい増＝毛球症リスク。牧草＋ケア</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="breed-thumb" aria-hidden="true">
+              <img src="assets/illust-dutch.svg" alt="ダッチ" loading="lazy" />
+            </div>
+            <div class="card-top">
+              <h3>ダッチ</h3>
+              <span class="tag">小型</span>
+            </div>
+            <p class="card-body">白と他の色のツートンが特徴的な歴史ある品種。穏やかで人懐っこい子が多め。</p>
+            <ul class="meta">
+              <li>体重目安: 1.6〜2.4kg</li>
+              <li>ポイント: 模様の境界が明確なほど品種として評価が高い</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="food">
+      <div class="container">
+        <div class="section-head">
+          <h2>うさぎの餌ガイド</h2>
+          <p class="muted">基本は「牧草（主食）＋ペレット（補助）＋野菜（少量）」です。おやつは頻度と量を控えめに。</p>
+        </div>
+
+        <div class="food-layout">
+          <div class="food-controls" role="tablist" aria-label="餌のカテゴリ">
+            <button class="pill active" data-filter="all" role="tab" aria-selected="true">全部</button>
+            <button class="pill" data-filter="staple" role="tab" aria-selected="false">主食</button>
+            <button class="pill" data-filter="veggie" role="tab" aria-selected="false">野菜</button>
+            <button class="pill" data-filter="treat" role="tab" aria-selected="false">おやつ</button>
+            <button class="pill danger" data-filter="ng" role="tab" aria-selected="false">NG</button>
+          </div>
+
+          <div class="food-table" id="foodTable" aria-live="polite">
+            <div class="food-row" data-kind="staple">
+              <div class="food-badge ok">OK</div>
+              <div class="food-main">
+                <div class="food-icon" aria-hidden="true">
+                  <img src="assets/food-timothy.svg" alt="チモシー" loading="lazy" />
+                </div>
+                <div>
+                  <h3>チモシー（1番刈り中心）</h3>
+                  <p>胃腸の動きを保つ要。基本は食べ放題。年齢や体質で種類を調整。</p>
+                </div>
+              </div>
+              <div class="food-side">
+                <span class="chip">毎日</span>
+                <span class="chip">常備</span>
+                <span class="chip">月: ¥---</span>
+              </div>
+            </div>
+
+            <div class="food-row" data-kind="staple">
+              <div class="food-badge warn">注意</div>
+              <div class="food-main">
+                <div class="food-icon" aria-hidden="true">
+                  <img src="assets/food-alfalfa.svg" alt="アルファルファ" loading="lazy" />
+                </div>
+                <div>
+                  <h3>アルファルファ</h3>
+                  <p>高栄養。成長期向けのことが多い。大人の子は体重・尿砂に注意しつつ。</p>
+                </div>
+              </div>
+              <div class="food-side">
+                <span class="chip">目的別</span>
+                <span class="chip">体質で</span>
+                <span class="chip">月: ¥---</span>
+              </div>
+            </div>
+
+            <div class="food-row" data-kind="staple">
+              <div class="food-badge ok">OK</div>
+              <div class="food-main">
+                <div class="food-icon" aria-hidden="true">
+                  <img src="assets/food-pellet.svg" alt="ペレット" loading="lazy" />
+                </div>
+                <div>
+                  <h3>ペレット（総合栄養食）</h3>
+                  <p>年齢に合ったものを。与えすぎは肥満の原因になりやすいので計量が安心。</p>
+                </div>
+              </div>
+              <div class="food-side">
+                <span class="chip">毎日</span>
+                <span class="chip">計量</span>
+                <span class="chip">月: ¥---</span>
+              </div>
+            </div>
+
+            <div class="food-row" data-kind="veggie">
+              <div class="food-badge ok">OK</div>
+              <div class="food-main">
+                <div class="food-icon" aria-hidden="true">
+                  <img src="assets/food-leafy.svg" alt="葉物野菜" loading="lazy" />
+                </div>
+                <div>
+                  <h3>葉物野菜（例: 小松菜・チンゲン菜）</h3>
+                  <p>水分補給にも。急に増やさず少量から様子見。新鮮なものを。</p>
+                </div>
+              </div>
+              <div class="food-side">
+                <span class="chip">少量</span>
+                <span class="chip">様子見</span>
+                <span class="chip">月: ¥---</span>
+              </div>
+            </div>
+
+            <div class="food-row" data-kind="veggie">
+              <div class="food-badge warn">注意</div>
+              <div class="food-main">
+                <div class="food-icon" aria-hidden="true">
+                  <img src="assets/food-cabbage.svg" alt="キャベツ・ブロッコリー" loading="lazy" />
+                </div>
+                <div>
+                  <h3>キャベツ・ブロッコリー</h3>
+                  <p>お腹にガスが溜まりやすい子も。少量で、調子が悪ければ中止。</p>
+                </div>
+              </div>
+              <div class="food-side">
+                <span class="chip">少量</span>
+                <span class="chip">個体差</span>
+                <span class="chip">月: ¥---</span>
+              </div>
+            </div>
+
+            <div class="food-row" data-kind="treat">
+              <div class="food-badge warn">注意</div>
+              <div class="food-main">
+                <div class="food-icon" aria-hidden="true">
+                  <img src="assets/food-fruit.svg" alt="果物" loading="lazy" />
+                </div>
+                <div>
+                  <h3>果物（例: りんご・バナナ）</h3>
+                  <p>糖分が多いので「ほんのひと口」。毎日ではなくご褒美程度に。</p>
+                </div>
+              </div>
+              <div class="food-side">
+                <span class="chip">ご褒美</span>
+                <span class="chip">少量</span>
+                <span class="chip">月: ¥---</span>
+              </div>
+            </div>
+
+            <div class="food-row" data-kind="treat">
+              <div class="food-badge warn">注意</div>
+              <div class="food-main">
+                <div class="food-icon" aria-hidden="true">
+                  <img src="assets/food-treat.svg" alt="市販のおやつ" loading="lazy" />
+                </div>
+                <div>
+                  <h3>市販のおやつ</h3>
+                  <p>成分（糖・穀物・添加物）を確認。歯の健康にも影響しやすい。</p>
+                </div>
+              </div>
+              <div class="food-side">
+                <span class="chip">頻度少</span>
+                <span class="chip">成分確認</span>
+                <span class="chip">月: ¥---</span>
+              </div>
+            </div>
+
+            <div class="food-row" data-kind="ng">
+              <div class="food-badge ng">NG</div>
+              <div class="food-main">
+                <div class="food-icon" aria-hidden="true">
+                  <img src="assets/food-ng-onion.svg" alt="ネギ類" loading="lazy" />
+                </div>
+                <div>
+                  <h3>ネギ類（玉ねぎ・長ねぎ・にら）</h3>
+                  <p>中毒の危険があるため与えない。</p>
+                </div>
+              </div>
+              <div class="food-side">
+                <span class="chip">危険</span>
+                <span class="chip">月: ¥---</span>
+              </div>
+            </div>
+
+            <div class="food-row" data-kind="ng">
+              <div class="food-badge ng">NG</div>
+              <div class="food-main">
+                <div class="food-icon" aria-hidden="true">
+                  <img src="assets/food-ng-choco.svg" alt="チョコ・カフェイン・アルコール" loading="lazy" />
+                </div>
+                <div>
+                  <h3>チョコ・カフェイン・アルコール</h3>
+                  <p>少量でも危険。誤食防止が重要。</p>
+                </div>
+              </div>
+              <div class="food-side">
+                <span class="chip">危険</span>
+                <span class="chip">月: ¥---</span>
+              </div>
+            </div>
+
+            <div class="food-row" data-kind="ng">
+              <div class="food-badge ng">NG</div>
+              <div class="food-main">
+                <div class="food-icon" aria-hidden="true">
+                  <img src="assets/food-ng-processed.svg" alt="人間用の加工食品" loading="lazy" />
+                </div>
+                <div>
+                  <h3>人間用の加工食品（塩分/油/香辛料）</h3>
+                  <p>体に負担。パン・スナック・揚げ物などは避ける。</p>
+                </div>
+              </div>
+              <div class="food-side">
+                <span class="chip">避ける</span>
+                <span class="chip">月: ¥---</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout">
+          <h3>分量の超ざっくり目安</h3>
+          <div class="callout-grid">
+            <div class="callout-item">
+              <div class="callout-title">牧草</div>
+              <div class="callout-text">基本は常に食べられるように</div>
+            </div>
+            <div class="callout-item">
+              <div class="callout-title">ペレット</div>
+              <div class="callout-text">体重や商品により調整（与えすぎ注意）</div>
+            </div>
+            <div class="callout-item">
+              <div class="callout-title">野菜</div>
+              <div class="callout-text">少量から。お腹の様子を見ながら</div>
+            </div>
+            <div class="callout-item">
+              <div class="callout-title">おやつ</div>
+              <div class="callout-text">ほんの少し。毎日は避ける</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tips">
+      <div class="container">
+        <div class="section-head">
+          <h2>飼育の要点</h2>
+          <p class="muted">うさぎは体調不良を隠しやすい動物です。変化に早く気づける環境づくりが大事です。</p>
+        </div>
+
+        <div class="two-col">
+          <div class="panel">
+            <h3>体調チェック</h3>
+            <ul class="list">
+              <li>食欲が落ちた/牧草を食べない</li>
+              <li>うんちが小さい・少ない・出ない</li>
+              <li>じっとして動かない、歯ぎしりが増えた</li>
+              <li>呼吸が荒い、鼻水、目やに</li>
+            </ul>
+            <p class="panel-note">いつもと違うが続く場合は早めに受診を。</p>
+          </div>
+
+          <div class="panel">
+            <h3>住まいと運動</h3>
+            <ul class="list">
+              <li>滑らない床（足裏の負担軽減）</li>
+              <li>かじり木等で歯のケア</li>
+              <li>毎日安全な範囲で運動時間を確保</li>
+              <li>暑さに弱いので室温管理</li>
+            </ul>
+            <p class="panel-note">ケージの外は誤食防止（電源コード・観葉植物など）。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>FAQ</h2>
+          <p class="muted">よくある疑問をまとめました。</p>
+        </div>
+
+        <div class="faq">
+          <details class="faq-item">
+            <summary>牧草を食べないときは？</summary>
+            <div class="faq-body">
+              <p>まずは体調（食欲・うんち・元気）を確認し、異変があれば受診を。元気があるなら、牧草の種類（硬さ・香り）や保管方法、食器の形を見直すと改善することがあります。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>ペレットはどれを選べばいい？</summary>
+            <div class="faq-body">
+              <p>年齢（ベビー/アダルト/シニア）に合ったものを選び、与えすぎないよう計量が安心です。体重の増減や便の状態で調整します。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>野菜は毎日必要？</summary>
+            <div class="faq-body">
+              <p>必須ではありませんが、少量の葉物野菜を上手に取り入れる家庭も多いです。急に増やさず、体質に合うか様子を見てください。</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <div class="footer-title">うさぎ図鑑とごはんガイド</div>
+          <div class="footer-muted">このサイトは一般情報です。治療や診断の代わりにはなりません。</div>
+        </div>
+        <a class="to-top" href="#top">ページ上部へ</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+function setupMultiExtImages() {
+  const exts = ["jpg", "jpeg", "png", "webp", "gif"];
+
+  $$("img[data-src-base]").forEach((img) => {
+    const base = img.dataset.srcBase;
+    if (!base) return;
+
+    let idx = 0;
+    const tryNext = () => {
+      if (idx >= exts.length) return;
+      const ext = exts[idx++];
+      img.src = `${base}.${ext}`;
+    };
+
+    img.addEventListener("error", () => {
+      tryNext();
+    });
+
+    const hasExt = /\.[a-z0-9]+$/i.test(img.getAttribute("src") || "");
+    if (!hasExt) {
+      tryNext();
+    }
+  });
+}
+
+const navToggle = $("#navToggle");
+const siteNav = $("#siteNav");
+
+if (navToggle && siteNav) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = siteNav.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  $$("a", siteNav).forEach((a) => {
+    a.addEventListener("click", () => {
+      siteNav.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+const pills = $$(".pill");
+const rows = $$(".food-row");
+
+function setActivePill(btn) {
+  pills.forEach((b) => {
+    const active = b === btn;
+    b.classList.toggle("active", active);
+    b.setAttribute("aria-selected", active ? "true" : "false");
+  });
+}
+
+function applyFoodFilter(filter) {
+  rows.forEach((row) => {
+    const kind = row.dataset.kind;
+    const show = filter === "all" || kind === filter;
+    row.style.display = show ? "grid" : "none";
+  });
+}
+
+pills.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const filter = btn.dataset.filter;
+    setActivePill(btn);
+    applyFoodFilter(filter);
+  });
+});
+
+setupMultiExtImages();
+  </script>
+</body>
+</html>

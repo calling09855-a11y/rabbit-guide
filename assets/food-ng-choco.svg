@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
+  <rect width="100" height="100" rx="18" fill="#fdf0f0"/>
+  
+  <!-- 板チョコ本体 -->
+  <rect x="22" y="28" width="56" height="44" rx="8" fill="#6b3820" stroke="#4a2410" stroke-width="2"/>
+  <!-- 区切り線（縦） -->
+  <line x1="41" y1="30" x2="41" y2="70" stroke="#4a2410" stroke-width="2" opacity="0.8"/>
+  <line x1="59" y1="30" x2="59" y2="70" stroke="#4a2410" stroke-width="2" opacity="0.8"/>
+  <!-- 区切り線（横） -->
+  <line x1="24" y1="48" x2="76" y2="48" stroke="#4a2410" stroke-width="2" opacity="0.8"/>
+  <!-- ハイライト -->
+  <rect x="26" y="32" width="12" height="14" rx="3" fill="white" opacity="0.12"/>
+  <rect x="44" y="32" width="12" height="14" rx="3" fill="white" opacity="0.10"/>
+  <!-- NGバツ印 -->
+  <line x1="28" y1="28" x2="72" y2="72" stroke="#e03040" stroke-width="7" stroke-linecap="round"/>
+  <line x1="72" y1="28" x2="28" y2="72" stroke="#e03040" stroke-width="7" stroke-linecap="round"/>
+
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
+  <rect width="100" height="100" rx="18" fill="#edf7e8"/>
+  
+  <!-- 茎 -->
+  <line x1="50" y1="80" x2="50" y2="55" stroke="#5a9e3a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="50" y1="68" x2="34" y2="56" stroke="#5a9e3a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="50" y1="68" x2="66" y2="56" stroke="#5a9e3a" stroke-width="3" stroke-linecap="round"/>
+  <!-- 葉 -->
+  <ellipse cx="50" cy="42" rx="12" ry="16" fill="#6dc44a" stroke="#4a8c30" stroke-width="1.5"/>
+  <ellipse cx="33" cy="50" rx="11" ry="15" fill="#7acc55" stroke="#4a8c30" stroke-width="1.5" transform="rotate(-30 33 50)"/>
+  <ellipse cx="67" cy="50" rx="11" ry="15" fill="#7acc55" stroke="#4a8c30" stroke-width="1.5" transform="rotate(30 67 50)"/>
+  <!-- 葉脈 -->
+  <line x1="50" y1="52" x2="50" y2="32" stroke="#4a8c30" stroke-width="1" opacity="0.5"/>
+  <!-- 根元 -->
+  <ellipse cx="50" cy="81" rx="16" ry="4" fill="#5a9e3a" opacity="0.2"/>
+
+</svg>
