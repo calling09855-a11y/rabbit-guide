@@ -260,6 +260,19 @@ h1{
 .card-body{margin:0 0 10px; color:rgba(42,31,22,.86)}
 .meta{margin:0; padding-left:18px; color:var(--muted); font-size:13px}
 
+.price-box{
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.55);
+  font-size:13px;
+}
+.price-box .price-title{font-weight:800;margin-bottom:6px;color:var(--text)}
+.price-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0}
+.price-label{color:var(--muted);font-weight:650}
+.price-value{font-weight:800;color:var(--accent2)}
+
 .food-layout{display:grid; grid-template-columns: 1fr; gap:12px}
 
 .food-controls{display:flex; gap:10px; flex-wrap:wrap}
@@ -368,12 +381,10 @@ h1{
 .to-top{color:rgba(47,143,91,.98); font-weight:850}
 
 .breed-thumb{
-  height:132px;
+  height:200px;
   border-radius:14px;
   border:1px solid rgba(42,31,22,.16);
-  background:radial-gradient(140px 90px at 35% 30%, rgba(47,143,91,.16), transparent 55%),
-             radial-gradient(160px 110px at 75% 65%, rgba(160,107,61,.20), transparent 60%),
-             rgba(255,255,255,.70);
+  background:rgba(245,241,234,.90);
   display:grid;
   place-items:center;
   margin-bottom:12px;
@@ -386,16 +397,13 @@ h1{
 .breed-thumb img{
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
   display:block;
-  filter:brightness(1.06) contrast(1.08) saturate(1.04);
-  transform:scale(1.03);
   transition:transform .18s ease, filter .18s ease;
 }
 
 .card:hover .breed-thumb img{
-  transform:scale(1.08);
-  filter:brightness(1.08) contrast(1.12) saturate(1.05);
+  transform:scale(1.05);
 }
 
 .food-main{
@@ -567,6 +575,11 @@ h1{
               <li>飼育難易度: ふつう</li>
               <li>ポイント: 慣れるまで距離感が必要なことも</li>
             </ul>
+            <div class="price-box">
+              <div class="price-title">価格帯の目安</div>
+              <div class="price-row"><span class="price-label">ペットショップ</span><span class="price-value">3〜8万円</span></div>
+              <div class="price-row"><span class="price-label">専門店・ブリーダー</span><span class="price-value">5〜15万円</span></div>
+            </div>
           </article>
 
           <article class="card">
@@ -585,6 +598,11 @@ h1{
               <li>飼育難易度: ふつう</li>
               <li>ポイント: 耳の通気が悪くなりやすいのでケア</li>
             </ul>
+            <div class="price-box">
+              <div class="price-title">価格帯の目安</div>
+              <div class="price-row"><span class="price-label">ペットショップ</span><span class="price-value">4〜8万円</span></div>
+              <div class="price-row"><span class="price-label">専門店・ブリーダー</span><span class="price-value">6〜15万円</span></div>
+            </div>
           </article>
 
           <article class="card">
@@ -603,6 +621,11 @@ h1{
               <li>飼育難易度: やや高い（毛のケア）</li>
               <li>ポイント: ブラッシング頻度を増やす</li>
             </ul>
+            <div class="price-box">
+              <div class="price-title">価格帯の目安</div>
+              <div class="price-row"><span class="price-label">ペットショップ</span><span class="price-value">3〜7万円</span></div>
+              <div class="price-row"><span class="price-label">専門店・ブリーダー</span><span class="price-value">5〜12万円</span></div>
+            </div>
           </article>
 
           <article class="card">
@@ -621,6 +644,11 @@ h1{
               <li>飼育難易度: ふつう（足裏注意）</li>
               <li>ポイント: 足裏に負担が出ないよう床材配慮</li>
             </ul>
+            <div class="price-box">
+              <div class="price-title">価格帯の目安</div>
+              <div class="price-row"><span class="price-label">ペットショップ</span><span class="price-value">3〜6万円</span></div>
+              <div class="price-row"><span class="price-label">専門店・ブリーダー</span><span class="price-value">4〜10万円</span></div>
+            </div>
           </article>
 
           <article class="card">
@@ -639,6 +667,11 @@ h1{
               <li>飼育難易度: 低め</li>
               <li>ポイント: 体重管理をしやすい</li>
             </ul>
+            <div class="price-box">
+              <div class="price-title">価格帯の目安</div>
+              <div class="price-row"><span class="price-label">ペットショップ</span><span class="price-value">2〜5万円</span></div>
+              <div class="price-row"><span class="price-label">専門店・ブリーダー</span><span class="price-value">4〜8万円</span></div>
+            </div>
           </article>
 
           <article class="card">
@@ -657,6 +690,11 @@ h1{
               <li>飼育難易度: 高い（スペース・食費）</li>
               <li>ポイント: ケージや運動スペースを大きめに</li>
             </ul>
+            <div class="price-box">
+              <div class="price-title">価格帯の目安</div>
+              <div class="price-row"><span class="price-label">ペットショップ</span><span class="price-value">3〜7万円</span></div>
+              <div class="price-row"><span class="price-label">専門店・ブリーダー</span><span class="price-value">5〜12万円</span></div>
+            </div>
           </article>
 
           <article class="card">
@@ -675,6 +713,11 @@ h1{
               <li>飼育難易度: やや高い（毛のケア）</li>
               <li>ポイント: 換毛期の毛球症対策（牧草・ブラシ）</li>
             </ul>
+            <div class="price-box">
+              <div class="price-title">価格帯の目安</div>
+              <div class="price-row"><span class="price-label">ペットショップ</span><span class="price-value">4〜8万円</span></div>
+              <div class="price-row"><span class="price-label">専門店・ブリーダー</span><span class="price-value">5〜12万円</span></div>
+            </div>
           </article>
 
           <article class="card">
@@ -693,6 +736,11 @@ h1{
               <li>飼育難易度: 高い（毎日ブラッシング必須）</li>
               <li>ポイント: 毛づくろい増＝毛球症リスク。牧草＋ケア</li>
             </ul>
+            <div class="price-box">
+              <div class="price-title">価格帯の目安</div>
+              <div class="price-row"><span class="price-label">ペットショップ</span><span class="price-value">3〜7万円</span></div>
+              <div class="price-row"><span class="price-label">専門店・ブリーダー</span><span class="price-value">5〜15万円</span></div>
+            </div>
           </article>
 
           <article class="card">
@@ -711,8 +759,42 @@ h1{
               <li>飼育難易度: 低め</li>
               <li>ポイント: 模様の境界が明確なほど品種として評価が高い</li>
             </ul>
+            <div class="price-box">
+              <div class="price-title">価格帯の目安</div>
+              <div class="price-row"><span class="price-label">ペットショップ</span><span class="price-value">2〜5万円</span></div>
+              <div class="price-row"><span class="price-label">専門店・ブリーダー</span><span class="price-value">3〜8万円</span></div>
+            </div>
           </article>
         </div>
+        <div class="two-col" style="margin-top:24px">
+          <div class="panel" style="border:1px solid var(--line);background:rgba(255,255,255,.80);border-radius:var(--radius);padding:16px">
+            <h3 style="margin:0 0 8px;color:var(--accent)">ペットショップで買うメリット・デメリット</h3>
+            <ul class="list" style="margin-bottom:8px">
+              <li><strong>◎</strong> 実際に見て触って選べる</li>
+              <li><strong>◎</strong> 飼育用品も一緒に揃えやすい</li>
+              <li><strong>◎</strong> 店舗数が多くアクセスしやすい</li>
+            </ul>
+            <ul class="list">
+              <li><strong>△</strong> 親の情報が不明なことが多い</li>
+              <li><strong>△</strong> 品種の知識が浅いスタッフの場合も</li>
+              <li><strong>△</strong> ストレス環境で体調を崩している子もいる</li>
+            </ul>
+          </div>
+          <div class="panel" style="border:1px solid var(--line);background:rgba(255,255,255,.80);border-radius:var(--radius);padding:16px">
+            <h3 style="margin:0 0 8px;color:var(--accent2)">専門店・ブリーダーで買うメリット・デメリット</h3>
+            <ul class="list" style="margin-bottom:8px">
+              <li><strong>◎</strong> 親の血統・性格の情報が豊富</li>
+              <li><strong>◎</strong> 品種に詳しく飼育相談がしやすい</li>
+              <li><strong>◎</strong> 健康管理が行き届いていることが多い</li>
+            </ul>
+            <ul class="list">
+              <li><strong>△</strong> 価格がやや高め</li>
+              <li><strong>△</strong> 店舗が少なく遠方になることも</li>
+              <li><strong>△</strong> 予約・待ちが必要な場合がある</li>
+            </ul>
+          </div>
+        </div>
+        <p class="panel-note" style="margin-top:10px">※ 価格は地域・毛色・血統・時期により大きく変動します。上記はあくまで参考値です。</p>
       </div>
     </section>
 
